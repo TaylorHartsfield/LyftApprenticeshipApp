@@ -17,7 +17,8 @@ def string_to_cut():
 
 def string_cutter(string):
     '''function to parse over the string parameter
-    and return a string with every 3rd character'''
+    and return a new string with every 3rd character
+    from the parameter string'''
     if len(string)<3: #edge case to handle input less than 3 characters
         return f'Cannot cut a string with less than 3 characters: {string}'
     cut_string = [string[i] for i in range(len(string)) if (i+1)%3==0] 
