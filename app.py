@@ -2,9 +2,19 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def welcome():
+    return "Welcome to this request"
+
 @app.route('/test', methods=['POST'])
 def string_to_cut():
-    srting_to_cut = request.json['string_to_cut']
+    string = request.json
+    if string:
+        cut_srting = string_cutter(string['string_to_cut'])
+        return jsonify({"return_string": cut_string})
+    return jsonify({"error": "Invalid Entry"})
+
+
 
 
 def string_cutter(string):
